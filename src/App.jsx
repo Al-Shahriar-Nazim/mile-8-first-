@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <Cnabvar></Cnabvar>
-    <Navbar></Navbar>
+    {/* <Navbar></Navbar> */}
     </>
   )
 }

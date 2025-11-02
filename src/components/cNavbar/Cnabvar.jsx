@@ -21,7 +21,10 @@ const Cnabvar = () => {
         ) : (
           <Menu className="md:hidden"></Menu>
         )}
-        <ul className="md:hidden">{links}</ul>
+        <ul className={`md:hidden absolute  text-black
+         bg-amber-200 duration-1000
+            ${open?'top-8':'-top-64'}
+            `}>{links}</ul>
 
         <h3 className="ml-4">My Navbar</h3>
       </span>
