@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "./link";
+import { Menu, X } from "lucide-react";
 const urls = [
   { id: 1, name: "Home", path: "/" },
   { id: 2, name: "About", path: "/about" },
@@ -9,8 +10,21 @@ const urls = [
 ];
 
 const Cnabvar = () => {
+  const [open, setOpen] = useState(false);
+  const links = urls.map((route) => <Link route={route}></Link>);
+
   return (
-    <nav>
+    <nav className="flex  justify-between mx-10">
+      <span className="flex" onClick={() => setOpen(!open)}>
+        {open ? (
+          <X className="md:hidden"></X>
+        ) : (
+          <Menu className="md:hidden"></Menu>
+        )}
+        <ul className="md:hidden">{links}</ul>
+
+        <h3 className="ml-4">My Navbar</h3>
+      </span>
       {/* <ul className='flex'>
                 <li><a className ="mr-10"  href="/">Home</a></li>
                 <li><a  className ="mr-10" href="/about">About</a></li>
@@ -25,11 +39,8 @@ const Cnabvar = () => {
             </ul> */}
 
       {/* way-3 external  file */}
-      <ul className="flex">
-        {urls.map((route) => (
-          <Link route={route}></Link>
-        ))}
-      </ul>
+      <ul className="md:flex hidden">{links}</ul>
+      <button className="btn btn-ghost">Sing-in</button>
     </nav>
   );
 };
